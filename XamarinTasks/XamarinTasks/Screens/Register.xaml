@@ -15,13 +15,11 @@
                     <Image>
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="Android,iOS" Value="4.png"/>
-                                <On Platform="UWP" Value="Resources/4.png"/>
+                                <On Platform="Android,iOS" Value="red.png"/>
+                                <On Platform="UWP" Value="Resources/red.png"/>
                             </OnPlatform>
                         </Image.Source>
                     </Image>
-                    <!--<Image Source="1.png"/>
-                    <Image Source="Resources/1.png"/>-->
                     <Label Text="Urgent and important" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
 
@@ -29,33 +27,36 @@
                     <Image>
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="Android,iOS" Value="3.png"/>
-                                <On Platform="UWP" Value="Resources/3.png"/>
+                                <On Platform="Android,iOS" Value="orange.png"/>
+                                <On Platform="UWP" Value="Resources/orange.png"/>
                             </OnPlatform>
                         </Image.Source>
                     </Image>
+                    <Label Text="Urgent and not important" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Spacing="10">
                     <Image>
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="Android,iOS" Value="2.png"/>
-                                <On Platform="UWP" Value="Resources/2.png"/>
+                                <On Platform="Android,iOS" Value="yellow.png"/>
+                                <On Platform="UWP" Value="Resources/yellow.png"/>
                             </OnPlatform>
                         </Image.Source>
                     </Image>
+                    <Label Text="Not urgent but important" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Spacing="10">
                     <Image>
                         <Image.Source>
                             <OnPlatform x:TypeArguments="ImageSource">
-                                <On Platform="Android,iOS" Value="1.png"/>
-                                <On Platform="UWP" Value="Resources/1.png"/>
+                                <On Platform="Android,iOS" Value="green.png"/>
+                                <On Platform="UWP" Value="Resources/green.png"/>
                             </OnPlatform>
                         </Image.Source>
                     </Image>
+                    <Label Text="Not urgent and not important" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
 
                 <Button Text="Ok" TextColor="White" BackgroundColor="Blue" HorizontalOptions="End" />
