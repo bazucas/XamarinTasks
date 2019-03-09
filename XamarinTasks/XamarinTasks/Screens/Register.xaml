@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinTasks.Screens.Register">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Action" FontAttributes="Bold" />
+            <Entry x:Name="TxtName" />
+            <Label Text="Priority" FontAttributes="Bold" />
+
+            <StackLayout x:Name="SlPriorities">
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android,iOS" Value="4.png"/>
+                                <On Platform="UWP" Value="Resources/4.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                    <!--<Image Source="1.png"/>
+                    <Image Source="Resources/1.png"/>-->
+                    <Label Text="Urgent and important" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android,iOS" Value="3.png"/>
+                                <On Platform="UWP" Value="Resources/3.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android,iOS" Value="2.png"/>
+                                <On Platform="UWP" Value="Resources/2.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Image>
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="Android,iOS" Value="1.png"/>
+                                <On Platform="UWP" Value="Resources/1.png"/>
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                </StackLayout>
+
+                <Button Text="Ok" TextColor="White" BackgroundColor="Blue" HorizontalOptions="End" />
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
