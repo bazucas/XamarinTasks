@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
+using Newtonsoft.Json;
 
 namespace XamarinTasks.Models
 {
@@ -15,17 +17,19 @@ namespace XamarinTasks.Models
             SaveInProperties(List);
         }
 
-        public void RemoveTask(Task task)
+        public void RemoveTask(int index)
         {
             List = Listing();
-            List.Remove(task);
+            List.RemoveAt(index);
 
             SaveInProperties(List);
         }
 
-        public void FinalizeTask(int index, Task task)
+        public void FinalizeTask(Task task, int index)
         {
+            List = Listing();
             List.RemoveAt(index);
+            task.FinishedTime = DateTime.Now;
             List.Add(task);
             SaveInProperties(List);
         }
@@ -37,15 +41,25 @@ namespace XamarinTasks.Models
 
         private static void SaveInProperties(List<Task> list)
         {
-            if (Application.Current.Properties.ContainsKey("Tasks")) Application.Current.Properties.Remove("Tasks");
-            Application.Current.Properties.Add("Tasks", list);
+            if (Application.Current.Properties.ContainsKey("Tasks"))
+            {
+                Application.Current.Properties.Remove("Tasks");
+            }
+
+            var jsonVal = JsonConvert.SerializeObject(list);
+
+            Application.Current.Properties.Add("Tasks", jsonVal);
         }
 
         private static List<Task> ListInProperties()
         {
-            if (Application.Current.Properties.ContainsKey("Tasks"))
-                return (List<Task>) Application.Current.Properties["Tasks"];
-            return new List<Task>();
+            if (!Application.Current.Properties.ContainsKey("Tasks")) return new List<Task>();
+
+            var jsonVal = (string)Application.Current.Properties["Tasks"];
+
+            var lista = JsonConvert.DeserializeObject<List<Task>>(jsonVal);
+
+            return lista;
         }
     }
 }

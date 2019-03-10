@@ -28,15 +28,14 @@ namespace XamarinTasks.Screens
             var source = ((Image) ((StackLayout) sender).Children[0]).Source as FileImageSource;
             if (source == null) return;
             var priority = source.File.Replace("Resources/", "").Replace(".png", "");
-            Enum.TryParse(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(priority.ToLower()),
-                out PriorityEnum parsedEnum);
+            Enum.TryParse(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(priority.ToLower()), out PriorityEnum parsedEnum);
             Priority = parsedEnum;
         }
 
         private void Button_OnClicked(object sender, EventArgs e)
         {
             var existingError = false;
-            if (!(TxtName.Text.Trim().Length > 0))
+            if (!(TxtName.Text?.Trim().Length > 0))
             {
                 existingError = true;
                 DisplayAlert("Error", "Unfilled name", "Ok");

@@ -2,14 +2,15 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinTasks.Screens.Home">
+             x:Class="XamarinTasks.Screens.Home"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
 
-            <StackLayout BackgroundColor="Blue" HeightRequest="250">
+            <StackLayout BackgroundColor="#2196F3" HeightRequest="250">
                 <Label Text="My Day" FontSize="24" HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand" TextColor="White" />
-                <Label Text="Wednesday, 02/22" HorizontalOptions="Start" VerticalOptions="End" TextColor="White" />
+                <Label Text="" x:Name="TodayDate" HorizontalOptions="Start" VerticalOptions="End" TextColor="White" />
             </StackLayout>
 
             <StackLayout x:Name="SlTasks" Padding="10" Spacing="10">
