@@ -1,6 +1,5 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using XamarinTasks.Screens;
 
 namespace XamarinTasks
 {
@@ -10,7 +9,7 @@ namespace XamarinTasks
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Screens.Home());
+            MainPage = new NavigationPage(new Home());
         }
 
         protected override void OnStart()
