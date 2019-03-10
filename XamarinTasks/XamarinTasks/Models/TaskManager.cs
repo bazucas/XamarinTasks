@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace XamarinTasks.Models
 {
@@ -41,10 +41,7 @@ namespace XamarinTasks.Models
 
         private static void SaveInProperties(List<Task> list)
         {
-            if (Application.Current.Properties.ContainsKey("Tasks"))
-            {
-                Application.Current.Properties.Remove("Tasks");
-            }
+            if (Application.Current.Properties.ContainsKey("Tasks")) Application.Current.Properties.Remove("Tasks");
 
             var jsonVal = JsonConvert.SerializeObject(list);
 
@@ -55,7 +52,7 @@ namespace XamarinTasks.Models
         {
             if (!Application.Current.Properties.ContainsKey("Tasks")) return new List<Task>();
 
-            var jsonVal = (string)Application.Current.Properties["Tasks"];
+            var jsonVal = (string) Application.Current.Properties["Tasks"];
 
             var lista = JsonConvert.DeserializeObject<List<Task>>(jsonVal);
 

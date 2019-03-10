@@ -28,7 +28,8 @@ namespace XamarinTasks.Screens
             var source = ((Image) ((StackLayout) sender).Children[0]).Source as FileImageSource;
             if (source == null) return;
             var priority = source.File.Replace("Resources/", "").Replace(".png", "");
-            Enum.TryParse(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(priority.ToLower()), out PriorityEnum parsedEnum);
+            Enum.TryParse(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(priority.ToLower()),
+                out PriorityEnum parsedEnum);
             Priority = parsedEnum;
         }
 

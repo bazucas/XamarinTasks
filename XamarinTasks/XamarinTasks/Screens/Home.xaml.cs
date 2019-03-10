@@ -18,6 +18,7 @@ namespace XamarinTasks.Screens
 
             LoadTasks();
         }
+
         public void StackLayoutLine(Task task, int index)
         {
             View centralStack;
@@ -40,12 +41,12 @@ namespace XamarinTasks.Screens
                     Spacing = 0,
                     HorizontalOptions = LayoutOptions.FillAndExpand
                 };
-                ((StackLayout)centralStack).Children.Add(new Label
+                ((StackLayout) centralStack).Children.Add(new Label
                 {
                     Text = task.Name,
                     TextColor = Color.Gray
                 });
-                ((StackLayout)centralStack).Children.Add(new Label
+                ((StackLayout) centralStack).Children.Add(new Label
                 {
                     Text = "Finished on " + task.FinishedTime?.ToString("MM/dd/yyyy - hh:mm") + "h",
                     TextColor = Color.Gray,
@@ -56,26 +57,24 @@ namespace XamarinTasks.Screens
             var priority = new Image
             {
                 VerticalOptions = LayoutOptions.Center,
-                Source = ImageSource.FromFile(Device.RuntimePlatform == Device.UWP ? "Resources/" + task.Priority.ToString().ToLower() + ".png" : task.Priority.ToString().ToLower() + ".png")
+                Source = ImageSource.FromFile(Device.RuntimePlatform == Device.UWP
+                    ? "Resources/" + task.Priority.ToString().ToLower() + ".png"
+                    : task.Priority.ToString().ToLower() + ".png")
             };
 
             var check = new Image
             {
-                VerticalOptions = LayoutOptions.Center                
+                VerticalOptions = LayoutOptions.Center
             };
 
             if (task.FinishedTime != null)
-            {
                 check.Source = ImageSource.FromFile(Device.RuntimePlatform == Device.UWP
                     ? "Resources/CheckOn.png"
                     : "CheckOn.png");
-            }
             else
-            {
                 check.Source = ImageSource.FromFile(Device.RuntimePlatform == Device.UWP
                     ? "Resources/CheckOff.png"
                     : "CheckOff.png");
-            }
 
             var checkTap = new TapGestureRecognizer();
             checkTap.Tapped += delegate
@@ -89,7 +88,9 @@ namespace XamarinTasks.Screens
             var delete = new Image
             {
                 VerticalOptions = LayoutOptions.Center,
-                Source = ImageSource.FromFile(Device.RuntimePlatform == Device.UWP ? "Delete.png" : "Resources/Delete.png")
+                Source = ImageSource.FromFile(Device.RuntimePlatform == Device.UWP
+                    ? "Delete.png"
+                    : "Resources/Delete.png")
             };
 
             var deleteTap = new TapGestureRecognizer();
@@ -100,7 +101,7 @@ namespace XamarinTasks.Screens
             };
             delete.GestureRecognizers.Add(deleteTap);
 
-            var line = new StackLayout { Orientation = StackOrientation.Horizontal, Spacing = 15 };
+            var line = new StackLayout {Orientation = StackOrientation.Horizontal, Spacing = 15};
 
             line.Children.Add(check);
             line.Children.Add(centralStack);
