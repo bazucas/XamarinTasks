@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamarinTasks.Models;
@@ -8,27 +9,27 @@ namespace XamarinTasks.Screens
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
-        private PriorityEnum Priority { get; set; }
-
         public Register()
         {
             InitializeComponent();
         }
+
+        private PriorityEnum Priority { get; set; }
 
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             var stacks = SlPriorities.Children;
 
             foreach (var stack in stacks)
-            {
-                if ((stack as StackLayout)?.Children[1] is Label lblPriority) lblPriority.TextColor = Color.Gray;
-            }
+                if ((stack as StackLayout)?.Children[1] is Label lblPriority)
+                    lblPriority.TextColor = Color.Gray;
 
-            ((Label)((StackLayout)sender).Children[1]).TextColor = Color.Black;
+            ((Label) ((StackLayout) sender).Children[1]).TextColor = Color.Black;
             var source = ((Image) ((StackLayout) sender).Children[0]).Source as FileImageSource;
             if (source == null) return;
             var priority = source.File.Replace("Resources/", "").Replace(".png", "");
-            Enum.TryParse(System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(priority.ToLower()), out PriorityEnum parsedEnum);
+            Enum.TryParse(CultureInfo.CurrentCulture.TextInfo.ToTitleCase(priority.ToLower()),
+                out PriorityEnum parsedEnum);
             Priority = parsedEnum;
         }
 

@@ -23,7 +23,7 @@
                     </Image>
                     <Label Text="Urgent and important" TextColor="Gray" HorizontalOptions="FillAndExpand" />
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
 
@@ -38,7 +38,7 @@
                     </Image>
                     <Label Text="Urgent and not important" TextColor="Gray" HorizontalOptions="FillAndExpand" />
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
 
@@ -53,7 +53,7 @@
                     </Image>
                     <Label Text="Not urgent but important" TextColor="Gray" HorizontalOptions="FillAndExpand" />
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
 
@@ -68,11 +68,12 @@
                     </Image>
                     <Label Text="Not urgent and not important" TextColor="Gray" HorizontalOptions="FillAndExpand" />
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped"/>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
                     </StackLayout.GestureRecognizers>
                 </StackLayout>
 
-                <Button Clicked="Button_OnClicked" Text="Ok" TextColor="White" BackgroundColor="Blue" HorizontalOptions="End" />
+                <Button Clicked="Button_OnClicked" Text="Ok" TextColor="White" BackgroundColor="Blue"
+                        HorizontalOptions="End" />
 
             </StackLayout>
 
